@@ -1,14 +1,18 @@
+const fizzBuzzUl = document.querySelector("#fizzBuzz");
+
 const fizzBuzz = () => {
   for (let i = 1; i <= 20; i++) {
+    const liElement = document.createElement("li");
     if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
+      liElement.textContent = "FizzBuzz";
     } else if (i % 3 === 0) {
-      console.log("Fizz");
+      liElement.textContent = "Fizz";
     } else if (i % 5 === 0) {
-      console.log("Buzz");
+      liElement.textContent = "Buzz";
     } else {
-      console.log(i);
+      liElement.textContent = i;
     }
+    fizzBuzzUl.appendChild(liElement);
   }
 };
 
