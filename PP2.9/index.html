@@ -29,7 +29,7 @@
       </div>
       <div class="my-4">
         <h3>Current Winner:</h3>
-        <h5 id="winner">0</h5>
+        <h5 id="winner">It's a tie!</h5>
       </div>
     </div>
 
@@ -45,14 +45,19 @@
 
       const checkWinner = (johnCount, aliceCount) => {
         if (johnCount > aliceCount) {
-          winner.textContent = "John is Winning!";
+          winner.textContent = `John is Winning with ${
+            johnCount - aliceCount
+          } vote${johnCount - aliceCount > 1 ? "s" : ""}!`;
         } else if (aliceCount > johnCount) {
-          winner.textContent = "Alice is Winning!";
+          winner.textContent = `Alice is Winning with ${
+            aliceCount - johnCount
+          } vote${aliceCount - johnCount > 1 ? "s" : ""}!`;
         } else {
-          winner.textContent = "It's a tie!";
+          winner.textContent = `It's a tie with ${
+            (aliceCount + johnCount) / 2
+          } vote${(aliceCount + johnCount) / 2 > 1 ? "s" : ""} each`;
         }
       };
-      checkWinner(johnCount, aliceCount);
 
       johnVoteBtn.addEventListener("click", () => {
         johnCount += 1;
