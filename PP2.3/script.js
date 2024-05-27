@@ -7,11 +7,15 @@ let count1Value = 0;
 let count2Value = 0;
 
 count1Btn.addEventListener("click", () => {
+  const p = document.createElement("span");
   count1Value += 1;
-  count1.textContent = `Count 1: ${count1Value}`;
+  p.innerHTML = `${count1Value}`;
+  count1.appendChild(p);
 });
 
 count2Btn.addEventListener("click", () => {
+  const p = document.createElement("span");
   count2Value += 1;
-  count2.textContent = `Count 2: ${count2Value}`;
+  p.textContent = `${count2Value}`;
+  count2.appendChild(p);
 });
