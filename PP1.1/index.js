@@ -1,19 +1,29 @@
-const fizzBuzzUl = document.querySelector("#fizzBuzz");
+const arr = [];
 
 const fizzBuzz = () => {
   for (let i = 1; i <= 20; i++) {
-    const liElement = document.createElement("li");
     if (i % 3 === 0 && i % 5 === 0) {
-      liElement.textContent = "FizzBuzz";
+      arr.push("FizzBuzz");
     } else if (i % 3 === 0) {
-      liElement.textContent = "Fizz";
+      arr.push("Fizz");
     } else if (i % 5 === 0) {
-      liElement.textContent = "Buzz";
+      arr.push("Buzz");
     } else {
-      liElement.textContent = i;
+      arr.push(i);
     }
-    fizzBuzzUl.appendChild(liElement);
   }
 };
 
 fizzBuzz();
+
+const fizzBuzzUl = document.querySelector("#fizzBuzz");
+
+const addLiElement = () => {
+  for (let i = 0; i < arr.length; i++) {
+    const liElement = document.createElement("li");
+    liElement.textContent = `${arr[i]}`;
+    fizzBuzzUl.appendChild(liElement);
+  }
+};
+
+addLiElement();
