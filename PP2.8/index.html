@@ -27,6 +27,10 @@
         <h3>Vote Count Of Alice</h3>
         <p id="aliceVoteCount">0</p>
       </div>
+      <div class="my-4">
+        <h3>Current Winner:</h3>
+        <h5 id="winner">0</h5>
+      </div>
     </div>
 
     <script>
@@ -34,20 +38,34 @@
       const aliceVoteBtn = document.querySelector("#aliceVoteBtn");
       const aliceVoteCount = document.querySelector("#aliceVoteCount");
       const johnVoteCount = document.querySelector("#johnVoteCount");
+      const winner = document.querySelector("#winner");
 
       let johnCount = 0;
       let aliceCount = 0;
+
+      const checkWinner = (johnCount, aliceCount) => {
+        if (johnCount > aliceCount) {
+          winner.textContent = "John is Winning!";
+        } else if (aliceCount > johnCount) {
+          winner.textContent = "Alice is Winning!";
+        } else {
+          winner.textContent = "It's a tie!";
+        }
+      };
+      checkWinner(johnCount, aliceCount);
 
       johnVoteBtn.addEventListener("click", () => {
         johnCount += 1;
 
         johnVoteCount.textContent = `${johnCount}`;
+        checkWinner(johnCount, aliceCount);
       });
 
       aliceVoteBtn.addEventListener("click", () => {
         aliceCount += 1;
 
         aliceVoteCount.textContent = `${aliceCount}`;
+        checkWinner(johnCount, aliceCount);
       });
     </script>
   </body>
