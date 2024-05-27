@@ -4,6 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      #error {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: none;
+      }
+      #section1 {
+        background-color: aquamarine;
+        padding: 5px;
+        margin-top: 10px;
+      }
+      #section2 {
+        background-color: burlywood;
+        padding: 5px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <label for="colorCode">Enter Color: </label>
+    <input type="text" id="colorCode" placeholder="e.g., #00ff00" />
+    <button id="changeSection1">Change Color Section 1</button>
+    <button id="changeSection2">Change Color Section 2</button>
+
+    <p id="error">
+      Invalid color format. Please enter valid color (eg., #00ff00)
+    </p>
+
+    <section id="section1">Section 1</section>
+    <section id="section2">Section 2</section>
+
+    <script src="script.js"></script>
+  </body>
 </html>
