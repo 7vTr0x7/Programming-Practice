@@ -68,7 +68,7 @@
           weekendEvents.appendChild(li);
           totalWeekendEvents.textContent = `Total Weekend Events: ${weekendEvents.childNodes.length}`;
         } else {
-          li.innerHTML = `${selectDay.value}: ${event.value} <button class="btn btn-danger float-end" id="deleteBtn">Delete</button>`;
+          li.innerHTML = `<div class="d-flex justify-content-between align-items-center">${selectDay.value}: ${event.value} <button class="btn btn-danger float-end" id="deleteBtn">Delete</button></div>`;
           weekdayEvents.appendChild(li);
           totalWeekdayEvents.textContent = `Total Weekday Events: ${weekdayEvents.childNodes.length}`;
 
@@ -76,7 +76,7 @@
           for (let i = 0; i < deleteBtns.length; i++) {
             deleteBtns[i].addEventListener("click", () => {
               const liElement = deleteBtns[i].parentNode;
-              liElement.remove();
+              liElement.parentNode.remove();
               totalWeekdayEvents.textContent = `Total Weekday Events: ${weekdayEvents.childNodes.length}`;
             });
           }
