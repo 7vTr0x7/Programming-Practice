@@ -56,7 +56,7 @@
 
         const li = document.createElement("li");
         li.className = "list-group-item";
-        li.textContent = event.value;
+        li.textContent = `${selectDay.value}: ${event.value}`;
 
         if (selectDay.value === "Saturday" || selectDay.value === "Sunday") {
           weekendEvents.appendChild(li);
