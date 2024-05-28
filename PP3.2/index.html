@@ -55,13 +55,26 @@
         const weekendEvents = document.querySelector("#weekendEvents");
 
         const li = document.createElement("li");
-        li.className = "list-group-item";
-        li.textContent = `${selectDay.value}: ${event.value}`;
+        li.className = "list-group-item ";
+
+        li.innerHTML = `${selectDay.value}: ${event.value}`;
 
         if (selectDay.value === "Saturday" || selectDay.value === "Sunday") {
+          li.innerHTML = `${selectDay.value}: ${event.value}`;
+
           weekendEvents.appendChild(li);
         } else {
+          li.innerHTML = `${selectDay.value}: ${event.value} <button class="btn btn-danger float-end" id="deleteBtn" >Delete</button>`;
+
           weekdayEvents.appendChild(li);
+
+          const deleteBtn = document.querySelectorAll("#deleteBtn");
+          for (let i = 0; i < deleteBtn.length; i++) {
+            deleteBtn[i].addEventListener("click", () => {
+              const liElement = deleteBtn[i].parentNode;
+              liElement.remove();
+            });
+          }
         }
       });
     </script>
